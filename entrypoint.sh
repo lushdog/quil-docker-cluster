@@ -21,13 +21,18 @@ elif [[ "$IS_CLUSTER" == "true" ]]; then
     # 主机模式：运行主节点程序并按核心范围运行子进程
     echo "Running in cluster mode as master..."
 
-    # 提取核心范围的起始和结束值
-    IFS="-" read CORE_START CORE_END <<< "$CORE_RANGE"
+    # 检查 CORE_RANGE 是否为 "0"
+    if [[ "$CORE_RANGE" == "0" ]]; then
+      echo "CORE_RANGE is 0, skipping child process startup."
+    else
+      # 提取核心范围的起始和结束值
+      IFS="-" read CORE_START CORE_END <<< "$CORE_RANGE"
 
-    # 循环启动子进程
-    for ((CORE=CORE_START; CORE<=CORE_END; CORE++)); do
-      node --core $CORE --parent-process $PARENT_PROCESS_PID &
-    done
+      # 循环启动子进程
+      for ((CORE=CORE_START; CORE<=CORE_END; CORE++)); do
+        node --core $CORE --parent-process $PARENT_PROCESS_PID &
+      done
+    fi
 
     # 运行主节点程序
     node
