@@ -77,7 +77,9 @@ dataWorkerMultiaddrs:
 2.修改变量，CORE_RANGE 按照dataWorkerMultiaddrs 地址修改。
 
 IS_CLUSTER=true
+
 ROLE=master
+
 CORE_RANGE=1-28
 
 3.启动master
@@ -129,7 +131,9 @@ dataWorkerMultiaddrs:
 2.修改变量，CORE_RANGE 按照dataWorkerMultiaddrs 地址修改。
 
 IS_CLUSTER=true
-ROLE=master
+
+ROLE=worker
+
 CORE_RANGE=29-59
 
 3.启动worker
