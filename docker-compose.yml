@@ -1,0 +1,30 @@
+name: quilibrium
+
+# See sysctl related warning in DOCKER-README.md.
+# Host configuration changes are required.
+
+services:
+  node:
+    image: trancelife/quilibrium:latest
+    restart: unless-stopped
+    environment:
+      - DEFAULT_LISTEN_GRPC_MULTIADDR=/ip4/0.0.0.0/tcp/8337
+      - DEFAULT_LISTEN_REST_MULTIADDR=/ip4/0.0.0.0/tcp/8338
+      - DEFAULT_STATS_MULTIADDR=/dns/stats.quilibrium.com/tcp/443
+      - IS_CLUSTER=${IS_CLUSTER}
+      - ROLE=${ROLE}
+      - CORE_RANGE=${CORE_RANGE}
+    network_mode: 'host'
+    healthcheck:
+      test: ["CMD", "grpcurl", "-plaintext", "localhost:8337", "list", "quilibrium.node.node.pb.NodeService"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 1m
+    volumes:
+      - ./.config:/root/.config
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: 2048m
