@@ -44,7 +44,7 @@ elif [[ "$IS_CLUSTER" == "true" ]]; then
 
     # 循环启动子进程
     for ((CORE=CORE_START; CORE<=CORE_END; CORE++)); do
-      ./node --core $CORE --parent-process $PARENT_PROCESS_PID &
+      node --core $CORE --parent-process $PARENT_PROCESS_PID &
     done
 
     # 确保脚本不会退出，让容器保持运行
