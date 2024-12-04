@@ -41,7 +41,7 @@ dataWorkerMultiaddrs:
     - /ip4/0.0.0.0/tcp/40025
     - /ip4/0.0.0.0/tcp/40026
     - /ip4/0.0.0.0/tcp/40027
-    # worker机器的worker端口，监听地址写worker的ip, 需要依次往下排列
+    # worker A机器的地址，监听地址写worker的ip, 需要依次往下排列
     - /ip4/65.109.19.177/tcp/40001
     - /ip4/65.109.19.177/tcp/40002
     - /ip4/65.109.19.177/tcp/40003
@@ -73,6 +73,10 @@ dataWorkerMultiaddrs:
     - /ip4/65.109.19.177/tcp/40029
     - /ip4/65.109.19.177/tcp/40030
     - /ip4/65.109.19.177/tcp/40031
+    # worker B机器的地址，监听地址写worker B的ip, 需要依次往下排列
+    - /ip4/65.109.19.178/tcp/40000
+    # 省略
+    - /ip4/65.109.19.178/tcp/40031
 ```
 
 2.修改变量，CORE_RANGE 按照dataWorkerMultiaddrs 地址修改。
