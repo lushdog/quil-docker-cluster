@@ -97,7 +97,7 @@ CORE_RANGE=1-28
 
 ### worker 机器
 
-worker 机器只需要config.yml 和 keys.yml, 将 master 机器的 config.yml 和 keys.yml 复制到 worker。并且修改config.yml。dataWorkerMultiaddrs 只需要写本地监听的既可。
+worker 机器只需要config.yml 和 keys.yml, 将 master 机器的 config.yml 和 keys.yml 复制到 worker（为了安全，也可以生成全新的配置使用！！）。并且修改config.yml。dataWorkerMultiaddrs 只需要写本地监听的既可。
 
 ```
 dataWorkerMultiaddrs:
