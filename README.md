@@ -80,7 +80,7 @@ dataWorkerMultiaddrs:
 ```
 
 2.修改变量，CORE_RANGE 指定master开了多少worker, 和dataWorkerMultiaddrs里master的worker的数量一定要对上，
-上边dataWorkerMultiaddrs里aster的worker有28个，CORE_RANGE就是1-28
+上边dataWorkerMultiaddrs里master的worker地址有28个，CORE_RANGE就是1-28
 。
 
 IS_CLUSTER=true
