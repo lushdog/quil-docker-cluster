@@ -22,3 +22,22 @@ services:
       options:
         max-file: "5"
         max-size: 2048m
+  # 第二个容器
+  # node2:
+  #   image: trancelife/quilibrium:latest
+  #   restart: unless-stopped
+  #   environment:
+  #     - DEFAULT_LISTEN_GRPC_MULTIADDR=/ip4/0.0.0.0/tcp/8337
+  #     - DEFAULT_LISTEN_REST_MULTIADDR=/ip4/0.0.0.0/tcp/8338
+  #     - DEFAULT_STATS_MULTIADDR=/dns/stats.quilibrium.com/tcp/443
+  #     - IS_CLUSTER=${IS_CLUSTER}
+  #     - ROLE=${ROLE}
+  #     - CORE_RANGE=${CORE_RANGE}
+  #   network_mode: 'host'
+  #   volumes:
+  #     - ./.config2:/root/.config
+  #   logging:
+  #     driver: "json-file"
+  #     options:
+  #       max-file: "5"
+  #       max-size: 2048m
