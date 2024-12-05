@@ -79,7 +79,9 @@ dataWorkerMultiaddrs:
     - /ip4/65.109.19.178/tcp/40031
 ```
 
-2.修改变量，CORE_RANGE 按照dataWorkerMultiaddrs 地址修改。
+2.修改变量，CORE_RANGE 指定master开了多少worker, 和dataWorkerMultiaddrs里master的worker的数量一定要对上，
+上边dataWorkerMultiaddrs里aster的worker有28个，CORE_RANGE就是1-28
+。
 
 IS_CLUSTER=true
 
@@ -135,13 +137,14 @@ dataWorkerMultiaddrs:
     
 ```
 
-2.修改变量，CORE_RANGE 按照dataWorkerMultiaddrs 地址修改。
+2.修改变量，CORE_RANGE 和dataWorkerMultiaddrs里地址的数量一定要对上，
+上边dataWorkerMultiaddrs里worker地址有32个，CORE_RANGE就是1-32。
 
 IS_CLUSTER=true
 
 ROLE=worker
 
-CORE_RANGE=1-28
+CORE_RANGE=1-32
 
 3.启动worker
 
